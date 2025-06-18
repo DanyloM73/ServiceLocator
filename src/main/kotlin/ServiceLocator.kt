@@ -1,16 +1,16 @@
 package org.example
 
 object ServiceLocator {
-    private val modules = mutableMapOf<String, Any>()
+    private val services = mutableMapOf<String, Any>()
 
     @Suppress("UNCHECKED_CAST")
     fun <T> get(name: String): T {
-        return modules[name] as? T
+        return services[name] as? T
             ?: throw IllegalArgumentException("Service not found: $name")
     }
 
-    fun set(name: String, module: Any) {
-        modules[name] = module
+    fun set(name: String, service: Any) {
+        services[name] = service
     }
 }
 
